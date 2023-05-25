@@ -1,7 +1,7 @@
 import axios from 'axios';
 import './App.css';
 import api from './api/axiosConfig';
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Layout from './components/Layout';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/home/Home';
@@ -20,7 +20,7 @@ function App() {
       const response = await api.get("/api/v1/movies");
       console.log(response.data);
       setMovies(response.data);
-    } 
+    }
     catch (error) {
       console.log(error);
     }
@@ -28,19 +28,18 @@ function App() {
 
   useEffect(() => {
     getMovies();
-  },[]);
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <Routes>
-      <Route path="/" element={<Layout/>}>
-            <Route path="/" element={<Home movies={movies} />} ></Route>
-            <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
-            <Route path="/TralerTest1" element={<TralerTest />} />
-          </Route>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home movies={movies} />} ></Route>
+          <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
+        </Route>
       </Routes>
-    </div>
+    </div >
   );
 }
 
