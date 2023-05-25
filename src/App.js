@@ -9,7 +9,8 @@ function App() {
 
   const getMovies = async () => {
     try {
-      const response = await axios.get("/api/v1/movies");
+      // const response = await axios.get("/api/v1/movies");
+      const response = await api.get("/api/v1/movies");
       console.log(response.data);
       setMovies(response.data);
     } 
