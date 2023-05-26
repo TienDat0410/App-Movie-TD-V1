@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import Header from './components/header/Header';
 import Trailer from './components/trailer/Trailer';
 import TralerTest from './components/trailer/TralerTest';
+import NotFound from './components/notFound/NotFound';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home movies={movies} />} ></Route>
           <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
+            <Route path="*" element = {<NotFound/>}></Route>
         </Route>
       </Routes>
     </div >
