@@ -20,8 +20,11 @@ function App() {
 
   const getMovies = async () => {
     try {
-      // const response = await axios.get("/api/v1/movies");
+      // const response = await axios.get("http://localhost:8080/api/v1/movies");
       const response = await api.get("/api/v1/movies");
+      // const response = await axios.get(
+      //   "https://moviestdapi-production.up.railway.app/api/v1/movies"
+      // );
       console.log(response.data);
       setMovies(response.data);
     }
@@ -33,7 +36,11 @@ function App() {
   const getMovieData = async (movieId) => {
 
     try {
+      // const response = await api.get(`http://localhost:8080/api/v1/movies/${movieId}`);
       const response = await api.get(`/api/v1/movies/${movieId}`);
+      // const response = await axios.get(
+      //   `https://moviestdapi-production.up.railway.app/api/v1/movies/${movieId}`
+      // );
 
       const singleMovie = response.data;
 
@@ -59,7 +66,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home movies={movies} />} ></Route>
+          <Route path="/home" element={<Home movies={movies} />} ></Route>
           <Route path="/Trailer/:ytTrailerId" element={<Trailer />} />
           <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews} setReviews={setReviews} />}></Route>
           <Route path="*" element={<NotFound />}></Route>
