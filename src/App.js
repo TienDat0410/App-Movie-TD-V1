@@ -25,7 +25,7 @@ function App() {
       // const response = await axios.get(
       //   "https://moviestdapi-production.up.railway.app/api/v1/movies"
       // );
-      console.log(response.data);
+      console.log(response);
       setMovies(response.data);
     }
     catch (error) {
@@ -45,8 +45,9 @@ function App() {
       const singleMovie = response.data;
 
       setMovie(singleMovie);
+      console.log(singleMovie);
 
-      setReviews(singleMovie.reviews);
+      setReviews(singleMovie.reviewIds);
 
 
     }
