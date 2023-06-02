@@ -6,6 +6,7 @@ import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
+const baseUrlImg = "https://image.tmdb.org/t/p/original";
 
 const Hero = ({ movies }) => {
 
@@ -21,18 +22,18 @@ const Hero = ({ movies }) => {
                 {
                     movies?.map((movie) => {
                         return (
-                            <Paper key={movie.imdbId}>
+                            <Paper key={movie.id}>
                                 <div className='movie-card-container'>
-                                    <div className="movie-card" style={{ "--img": `url(${movie.backdrops[0]})` }}>
+                                    <div className="movie-card" style={{ "--img": `url(${baseUrlImg}${movie.poster_path})` }}>
                                         <div className="movie-detail">
                                             <div className="movie-poster">
-                                                <img src={movie.poster} alt="" />
+                                                <img src={baseUrlImg + movie.backdrop_path} alt="" />
                                             </div>
                                             <div className="movie-title">
                                                 <h4>{movie.title}</h4>
                                             </div>
                                             <div className="movie-buttons-container">
-                                                <Link to={`/Trailer/${movie.trailerLink.substring(movie.trailerLink.length - 11)}`}>
+                                                <Link to="/">
                                                     <div className="play-button-icon-container">
                                                         <FontAwesomeIcon className="play-button-icon"
                                                             icon={faCirclePlay}
@@ -40,7 +41,7 @@ const Hero = ({ movies }) => {
                                                     </div>
                                                 </Link>
                                                 <div className="movie-review-button-container">
-                                                    <Button variant="info" onClick={() => reviews(movie.imdbId)} >Reviews</Button>
+                                                    <Button variant="info" onClick={() => reviews(movie.id)} >Reviews</Button>
                                                 </div>
                                             </div>
                                         </div>
