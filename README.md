@@ -1,5 +1,5 @@
 # Demo in web
-https://td-movies.netlify.app/
+https://tdat-movies.netlify.app/
 
 # Getting Started with Create React App
 

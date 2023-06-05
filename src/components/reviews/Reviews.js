@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import ReviewForm from '../reviewForm/ReviewForm.js';
 
-import React from 'react'
+import React from 'react';
+const baseUrlImg = "https://image.tmdb.org/t/p/original";
 
 const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
 
@@ -46,7 +47,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
                 </Row>
                 <Row className="mt-2">
                     <Col>
-                        <img src={movie?.poster} alt="" />
+                        <img src={baseUrlImg + movie?.poster_path} width={300} alt="" />
                     </Col>
                     <Col>
                         {

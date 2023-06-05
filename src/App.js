@@ -1,6 +1,6 @@
 import axios from 'axios';
 import './App.css';
-import api from './api/axiosConfig';
+import api from './api/axiosClient';
 import { useState, useEffect } from 'react'
 import Layout from './components/Layout';
 import { Route, Routes } from 'react-router-dom';
@@ -26,7 +26,7 @@ function App() {
       //   "https://moviestdapi-production.up.railway.app/api/v1/movies"
       // );
       console.log(response);
-      setMovies(response.data);
+      setMovies(response);
     }
     catch (error) {
       console.log(error);
@@ -42,10 +42,9 @@ function App() {
       //   `https://moviestdapi-production.up.railway.app/api/v1/movies/${movieId}`
       // );
 
-      const singleMovie = response.data;
+      const singleMovie = response;
 
       setMovie(singleMovie);
-      console.log(singleMovie);
 
       setReviews(singleMovie.reviewIds);
 

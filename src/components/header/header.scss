@@ -1,0 +1,24 @@
+@use "../../scss/" as *;
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    @include flex(center, unset);
+
+    img {
+        margin-right: 5px;
+        width: 50px;
+
+        @include mobile {
+            width: 30px;
+            margin-right: 0;
+        }
+    }
+}
+
+
+// .custom-navbar {
+//     background-color: rgb(26, 44, 92);
+
+// }
