@@ -8,7 +8,8 @@ import axios from "axios";
 // });
 
 const apiConfig = {
-    baseURL:"http://localhost:8080",
+    // baseURL:"http://localhost:8080",
+    baseURL: "https://moviestdapi-production.up.railway.app",
     originalImage: (imgPath) => `https://image.tmdb.org/t/p/original/${imgPath}`,
     w500Image: (imgPath) => `https://image.tmdb.org/t/p/w500/${imgPath}`
 }
